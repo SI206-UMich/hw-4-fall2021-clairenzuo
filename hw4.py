@@ -103,7 +103,8 @@ class Stall:
         return self.cost * quantity
 
     def __str__(self):
-        return "Hello, we are" + str(self.name) + ". This is the current menu" + self.inventory + "We charge " + str(self.cost) + "per item. We have " + str(self.earnings) + " in total."
+        keys = self.inventory.keys() 
+        return "Hello, we are" + self.name + ". This is the current menu" + str(keys) + "We charge " + str(self.cost) + "per item. We have " + str(self.earnings) + " in total."
 
 
 class TestAllMethods(unittest.TestCase):
@@ -238,9 +239,9 @@ def main():
     p2.validate_order(order2, Stall1, "spinach", 5)
     p3.validate_order(order1, Stall2, "broccoli", 3)
     #case 2: the casher has the stall, but not enough ordered food or the ordered food item
-    p1.validate_order(order1, Stall1, "smarties", 53)
-    p2.validate_order(order2, Stall2, "jawbreakers", 67)
-    p3.validate_order(order1, Stall1, "jellybeans", 3)
+    p1.validate_order(order1, Stall1, "spinach", 53)
+    p2.validate_order(order2, Stall2, "cookies", 67)
+    p3.validate_order(order1, Stall1, "broccoli", 3)
     #case 3: the customer does not have enough money to pay for the order: 
     p1.validate_order(order1, Stall1, "cookies", 10)
     p2.validate_order(order2, Stall2, "spinach", 10)

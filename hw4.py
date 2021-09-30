@@ -1,4 +1,9 @@
 
+# Your name: Claire Zuo
+# Your student id: 72712801
+# Your email: zclaire@umich.edu 
+# List who you have worked with on this homework: Sarayu Dandamudi, Jia-Tong Choo
+# 
 import unittest
 
 # The Customer class

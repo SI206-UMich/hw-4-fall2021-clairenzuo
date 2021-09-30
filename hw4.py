@@ -190,7 +190,6 @@ class TestAllMethods(unittest.TestCase):
         self.assertEqual(self.s3.has_item('Pizza', 20), False)
         # Test case 2: the stall does not have enough food item: 
         self.assertEqual(self.s3.has_item('Burger', 200), False)
-        
         # Test case 3: the stall has the food item of the certain quantity: 
         self.assertEqual(self.s3.has_item('Burger', 40), False)
         
@@ -222,9 +221,9 @@ class TestAllMethods(unittest.TestCase):
 def main():
     inventorydicone = {"cookies": 30, "brownies": 10, "chocolate": 35}
     inventorydictwo = {"spinach": 40, "broccoli": 25, "chicken": 13}
-    p1 = Customer("Kenneth", 250)
-    p2 = Customer("Alison", 500)
-    p3 = Customer("Paige", 50)
+    p1 = Customer("Kenneth", 10)
+    p2 = Customer("Alison", 20)
+    p3 = Customer("Paige", 15)
     Stall1 = Stall("Word of Snax", inventorydicone, 6) 
     Stall2 = Stall("Healthy peeps", inventorydictwo, 10)
     order1 = Cashier("Jimmy", directory= [Stall1])
@@ -237,13 +236,20 @@ def main():
     #case 1: the cashier does not have the stall 
     p1.validate_order(order1, Stall2, "cookies", 6)
     p2.validate_order(order2, Stall1, "spinach", 5)
+    p3.validate_order(order1, Stall2, "broccoli", 3)
     #case 2: the casher has the stall, but not enough ordered food or the ordered food item
-    p1.validate_order(order1, Stall1, )
+    p1.validate_order(order1, Stall1, "smarties", 53)
+    p2.validate_order(order2, Stall2, "jawbreakers", 67)
+    p3.validate_order(order1, Stall1, "jellybeans", 3)
     #case 3: the customer does not have enough money to pay for the order: 
-    
+    p1.validate_order(order1, Stall1, "cookies", 10)
+    p2.validate_order(order2, Stall2, "spinach", 10)
+    p3.validate_order(order1, Stall1, "chocolate", 10)
     #case 4: the customer successfully places an order
-
-    pass
+    p1.validate_order(order1, Stall1, "cookies", 1)
+    p2.validate_order(order2, Stall2, "spinach", 1)
+    p3.validate_order(order1, Stall1, "brownies", 1)
+    
 
 if __name__ == "__main__":
 	main()
